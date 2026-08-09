@@ -1,0 +1,534 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f6fb;
+  color: #1f2937;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+============================================================ */
+
+.sidebar {
+  width: 250px;
+  background: #10182b;
+  color: white;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 35px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.brand span {
+  color: #7f8aa8;
+  font-size: 12px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 13px;
+  border-radius: 10px;
+  color: #8e99b5;
+  font-size: 14px;
+}
+
+.nav-item.active {
+  background: #202b47;
+  color: white;
+}
+
+.nav-item b {
+  margin-left: auto;
+  background: #2c3856;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.ai-status {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #18223a;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.ai-status strong,
+.admin strong {
+  display: block;
+  font-size: 13px;
+}
+
+.ai-status small,
+.admin small {
+  display: block;
+  color: #7f8aa8;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+
+/* ============================================================
+   MAIN
+============================================================ */
+
+.main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 35px 45px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.header p {
+  color: #7b8498;
+  margin: 7px 0 0;
+  font-size: 14px;
+}
+
+.refresh-btn {
+  border: 1px solid #dddff0;
+  background: white;
+  padding: 11px 18px;
+  border-radius: 8px;
+}
+
+
+/* ============================================================
+   ALERTS
+============================================================ */
+
+.success,
+.error {
+  padding: 13px 17px;
+  border-radius: 9px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.success {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.error {
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+
+/* ============================================================
+   STATS
+============================================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e7e8ef;
+  border-radius: 13px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.stat-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.stat-icon.green {
+  background: #ecfdf3;
+  color: #16a34a;
+}
+
+.stat-icon.red {
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+.stat-icon.purple {
+  background: #f3f0ff;
+  color: #6d5dfc;
+}
+
+.stat-icon.orange {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.stat-card span {
+  display: block;
+  color: #7b8498;
+  font-size: 12px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 24px;
+  margin: 3px 0;
+}
+
+.stat-card small {
+  color: #9aa1b1;
+  font-size: 11px;
+}
+
+
+/* ============================================================
+   INGESTION
+============================================================ */
+
+.ingestion-card {
+  background: white;
+  border: 1px solid #e5e7ef;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 28px;
+}
+
+.gemini-label {
+  color: #635bff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.ingestion-card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.ingestion-card p {
+  color: #7b8498;
+  font-size: 13px;
+  margin: 8px 0 20px;
+}
+
+.json-area {
+  border: 1px solid #dfe2ea;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.json-header {
+  background: #f8f9fc;
+  border-bottom: 1px solid #e5e7ef;
+  padding: 11px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.json-header strong {
+  font-size: 13px;
+}
+
+.json-header button {
+  border: 0;
+  background: transparent;
+  color: #4f46e5;
+  font-size: 12px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 270px;
+  border: 0;
+  outline: none;
+  resize: vertical;
+  padding: 18px;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  background: #fbfcff;
+  color: #26334d;
+}
+
+.process-btn {
+  margin-top: 16px;
+  background: #5146e5;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 13px 22px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.process-btn:hover {
+  background: #4338ca;
+}
+
+.process-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+
+/* ============================================================
+   TASKS
+============================================================ */
+
+.tasks-section {
+  background: white;
+  border: 1px solid #e5e7ef;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.tasks-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tasks-heading h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tasks-heading p {
+  margin: 6px 0 0;
+  color: #7b8498;
+  font-size: 13px;
+}
+
+.tasks-heading button {
+  border: 0;
+  background: transparent;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   EMPTY
+============================================================ */
+
+.empty-state {
+  text-align: center;
+  padding: 55px 20px;
+  border: 1px dashed #dfe2ea;
+  border-radius: 10px;
+}
+
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.empty-state h3 {
+  margin: 0;
+}
+
+.empty-state p {
+  color: #8991a4;
+  font-size: 13px;
+}
+
+
+/* ============================================================
+   TASK CARDS
+============================================================ */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  border: 1px solid #e5e7ef;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-title-row h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.task-main p {
+  color: #70798d;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.priority {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.priority.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.priority.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 12px;
+  color: #697386;
+  font-size: 11px;
+}
+
+.task-id {
+  color: #a0a6b4;
+  font-size: 11px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1000px) {
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+}
