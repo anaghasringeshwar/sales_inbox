@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import ChatWidget from "./ChatWidget";
 
 const API_URL = "https://sales-inbox-backend.onrender.com";
 
@@ -474,6 +475,8 @@ function App() {
         </section>
 
       </main>
+
+      <ChatWidget />
 
     </div>
   );
