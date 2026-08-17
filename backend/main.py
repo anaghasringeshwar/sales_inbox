@@ -6,6 +6,7 @@ from .routers.tasks import router as tasks_router
 from .routers.ingest import router as ingest_router
 from .routers.api_tasks import router as api_tasks_router
 from .routers.stats import router as stats_router
+from .routers.chat import router as chat_router          
 from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
@@ -26,6 +27,7 @@ app.include_router(tasks_router)
 app.include_router(ingest_router)
 app.include_router(api_tasks_router)
 app.include_router(stats_router)
+app.include_router(chat_router)                          
 
 
 @app.get("/")
